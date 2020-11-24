@@ -10,15 +10,28 @@ class Seed(models.Model):
         return self.title
 
 
+class Image(models.Model):
+    image_link = models.CharField(max_length=500)
+    title = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.title
+
+
 class Panorama(models.Model):
-    panorama_images_link = models.CharField(max_length=500)
+    title = models.CharField(max_length=100)
+    images = models.ManyToManyField(Image)
     panorama_url = models.CharField(max_length=500)
+
+    def __str__(self):
+        return self.title
 
 
 class Marker(models.Model):
     street = models.CharField(max_length=100)
     coordinate_x = models.FloatField()
     coordinate_y = models.FloatField()
+    panorama = models.ForeignKey(Panorama, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.street
