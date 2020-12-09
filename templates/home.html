@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{%  block content %}
+<div class="right-wrapper">
+    <div class="header">
+        <div class="head-wrap">
+        <h2 class="head-title">People in Forest</h2>
+        <h4 class="sub-title"><i>Дана платформа - це SMART інструмент для озеленення міст України</i></h4>
+        </div>
+    </div>
+
+    <div class="mission">
+        <h2>Місія проекту</h2>
+        <h5><i> Зробити озеленення міст доступним для всіх мешканців. За допомогою найсучасніших технологій	 ми прагнемо оновлення зелених зон. Для прикладу житель Києва зможе посадити дерево в Львові.</i></h5>
+
+        <div class="images" id="slider">
+            <div class="image">
+                <img src="{% static 'images/1_elem.jpg' %}" alt="" onclick="openModal();currentSlide(1)" class="hover-shadow">
+            </div>
+            <div class="image">
+                <img src="{% static 'images/2_elem.jpg' %}" alt="" onclick="openModal();currentSlide(2)" class="hover-shadow">
+            </div>
+            <div class="image">
+                <img src="{% static 'images/3_elem.jpg' %}" alt="" onclick="openModal();currentSlide(3)" class="hover-shadow">
+            </div>
+            <div class="image">
+                <img src="{% static 'images/4_elem.jpg' %}" alt="" onclick="openModal();currentSlide(4)" class="hover-shadow">
+            </div>
+        </div>
+
+        <!-- The Modal/Lightbox -->
+        <div id="myModal" class="modal">
+            <span class="close cursor" onclick="closeModal()">&times;</span>
+            <div class="modal-content">
+                <div class="mySlides">
+                    <img src="{% static 'images/1_elem.jpg' %}" alt="" style="width:100%">
+                </div>
+                <div class="mySlides">
+                    <img src="{% static 'images/2_elem.jpg' %}" alt="" style="width:100%">
+                </div>
+                <div class="mySlides">
+                    <img src="{% static 'images/3_elem.jpg' %}" alt="" style="width:100%">
+                </div>
+                <div class="mySlides">
+                    <img src="{% static 'images/4_elem.jpg' %}" alt="" style="width:100%">
+                </div>
+                <!-- Next/previous controls -->
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="map button-default-main">
+        <a href="google_maps.html">Переглянути карту</a>
+    </div>
+
+    <div class="question">
+        <h2>Є запитання?</h2>
+        <h5>Щоб отримати докладну інформацію про проект, надішліть листа на адресу [електронна адреса]</h5>
+        <div class="button-default-main">
+        <a href="">Написати</a>
+        </div>
+    </div>
+</div>
+{% endblock content %}

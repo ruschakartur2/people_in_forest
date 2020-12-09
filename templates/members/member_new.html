@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="add_member_block" style="margin:0 auto;">
+<h1>Добавити нового користувача</h1>
+
+    <form action="" method="post">{% csrf_token %}
+    {{ form|crispy }}
+        <input type="submit" value="Добавити" class="p-3 btn btn-secondary ">
+    </form>
+</div>
+{% endblock content %}

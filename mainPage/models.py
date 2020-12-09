@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Seed(models.Model):
@@ -39,9 +40,15 @@ class Marker(models.Model):
 
 class Member(models.Model):
     name = models.CharField(max_length=100)
+    role = models.CharField(max_length=150)
+    image_link = models.CharField(max_length=1000)
     email = models.EmailField()
     facebook_link = models.CharField(max_length=500)
-    is_administration = models.BooleanField()
+    is_administration = models.BooleanField(default='False')
 
     def __str__(self):
         return self.name
+
+    @staticmethod
+    def get_absolute_url():
+        return reverse('members')

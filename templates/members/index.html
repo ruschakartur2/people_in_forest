@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="cont d-flex flex-row flex-wrap justify-content-center">
+
+    {% for member in members %}
+    <div style="width:18rem;" class="member card p-3 d-flex m-3">
+        <img width="400" height="200" src="{{ member.image_link }}" alt="{{ member.name }}" class="card-img-top">
+        <div class="card-body">
+        <h2 class="card-title">{{ member.name }}</h2>
+        <h4 class="card-text">{{ member.role }}</h4>
+        <a class="btn" href="{{ member.facebook_link }}">Facebook</a>
+        <a class="btn" href="{{ member.email }}">Email</a>
+        </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock content %}
